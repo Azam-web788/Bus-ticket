@@ -1,0 +1,1 @@
+{"statusCode":200,"body":"{\"status\":\"ok\",\"timestamp\":\"2026-07-09T11:13:38.373Z\"}","multiValueHeaders":{"x-powered-by":["Express"],"vary":["Origin"],"access-control-allow-credentials":["true"],"content-type":["application/json; charset=utf-8"],"content-length":["54"],"etag":["W/\"36-oGjArwCscmZy99xthJCQAb/hiiI\""]},"isBase64Encoded":false}

@@ -17,7 +17,10 @@ import {
   History,
   DirectionsBus,
   Search,
+<<<<<<< HEAD
   TrendingFlat,
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 } from '@mui/icons-material';
 import BookingCard from '../Components/BookingCard';
 import { bookingAPI } from '../services/api';
@@ -48,6 +51,10 @@ const MyBookings = () => {
   const handleCancel = async (id) => {
     try {
       await bookingAPI.cancel(id);
+<<<<<<< HEAD
+=======
+      // Update local state
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
       setBookings((prev) =>
         prev.map((b) => (b._id === id ? { ...b, status: 'cancelled' } : b))
       );
@@ -67,16 +74,22 @@ const MyBookings = () => {
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 3, md: 4 } }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
+<<<<<<< HEAD
         <Box sx={{ p: 1, bgcolor: 'primary.light', borderRadius: 1.5, display: 'flex' }}>
           <ConfirmationNumber color="primary" sx={{ fontSize: 28 }} />
         </Box>
         <Typography variant="h4" fontWeight={800}>My Bookings</Typography>
+=======
+        <ConfirmationNumber color="primary" sx={{ fontSize: 32 }} />
+        <Typography variant="h4" fontWeight={700}>My Bookings</Typography>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
       </Box>
 
       {error && (
         <Alert severity="error" sx={{ mb: 2, borderRadius: 2 }}>{error}</Alert>
       )}
 
+<<<<<<< HEAD
       <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
         <Tabs
           value={tab}
@@ -96,6 +109,22 @@ const MyBookings = () => {
       {loading ? (
         <Box sx={{ textAlign: 'center', py: 8 }}>
           <CircularProgress size={48} thickness={4} />
+=======
+      <Tabs
+        value={tab}
+        onChange={(_, v) => setTab(v)}
+        sx={{ mb: 3, borderBottom: 1, borderColor: 'divider' }}
+      >
+        <Tab label="All" />
+        <Tab label="Upcoming" icon={<DirectionsBus sx={{ fontSize: 18 }} />} iconPosition="start" />
+        <Tab label="Completed" icon={<History sx={{ fontSize: 18 }} />} iconPosition="start" />
+        <Tab label="Cancelled" icon={<EventBusy sx={{ fontSize: 18 }} />} iconPosition="start" />
+      </Tabs>
+
+      {loading ? (
+        <Box sx={{ textAlign: 'center', py: 8 }}>
+          <CircularProgress size={48} />
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         </Box>
       ) : filteredBookings.length > 0 ? (
         <Stack spacing={2}>
@@ -104,6 +133,7 @@ const MyBookings = () => {
           ))}
         </Stack>
       ) : (
+<<<<<<< HEAD
         <Box sx={{ textAlign: 'center', py: 10 }}>
           <ConfirmationNumber sx={{ fontSize: 64, color: 'grey.300', mb: 2 }} />
           <Typography variant="h6" fontWeight={700} color="text.secondary" gutterBottom>
@@ -124,6 +154,19 @@ const MyBookings = () => {
               Search Buses
             </Button>
           )}
+=======
+        <Box sx={{ textAlign: 'center', py: 8 }}>
+          <ConfirmationNumber sx={{ fontSize: 64, color: 'grey.300', mb: 2 }} />
+          <Typography variant="h6" color="text.secondary" gutterBottom>No bookings found</Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+            {tab === 0
+              ? "You haven't made any bookings yet"
+              : `No ${tab === 1 ? 'upcoming' : tab === 2 ? 'completed' : 'cancelled'} bookings`}
+          </Typography>
+          <Button variant="contained" startIcon={<Search />} onClick={() => navigate('/')} sx={{ textTransform: 'none', borderRadius: 2 }}>
+            Search Buses
+          </Button>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         </Box>
       )}
     </Container>

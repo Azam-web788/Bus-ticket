@@ -6,6 +6,11 @@ import {
   Typography,
   Grid,
   Paper,
+<<<<<<< HEAD
+=======
+  Card,
+  CardContent,
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   Button,
   List,
   ListItem,
@@ -28,7 +33,10 @@ import {
   AttachMoney,
   ConfirmationNumber,
   Warning,
+<<<<<<< HEAD
   ChevronRight,
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 } from '@mui/icons-material';
 import { busAPI, routeAPI, bookingAPI } from '../services/api';
 
@@ -95,16 +103,22 @@ const AdminDashboard = () => {
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 3, md: 4 } }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 4 }}>
+<<<<<<< HEAD
         <Box sx={{ p: 1, bgcolor: 'primary.light', borderRadius: 1.5, display: 'flex' }}>
           <Dashboard color="primary" sx={{ fontSize: 28 }} />
         </Box>
         <Typography variant="h4" fontWeight={800}>Admin Dashboard</Typography>
+=======
+        <Dashboard color="primary" sx={{ fontSize: 32 }} />
+        <Typography variant="h4" fontWeight={700}>Admin Dashboard</Typography>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
       </Box>
 
       {/* Stats Cards */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
         {statsCards.map((stat) => (
           <Grid size={{ xs: 12, sm: 6, md: 3 }} key={stat.label}>
+<<<<<<< HEAD
             <Paper elevation={0} sx={{ p: 2.5, borderRadius: 3, border: '1px solid', borderColor: 'divider', display: 'flex', alignItems: 'center', gap: 2, transition: 'all 0.3s', '&:hover': { transform: 'translateY(-3px)', boxShadow: '0 8px 30px rgba(0,0,0,0.08)' } }}>
               <Avatar sx={{ bgcolor: stat.bgColor, width: 52, height: 52, borderRadius: 2.5 }}>
                 <Box sx={{ color: stat.color }}>{stat.icon}</Box>
@@ -112,6 +126,15 @@ const AdminDashboard = () => {
               <Box>
                 <Typography variant="h4" fontWeight={800}>{stat.value}</Typography>
                 <Typography variant="body2" color="text.secondary" fontWeight={500}>{stat.label}</Typography>
+=======
+            <Paper elevation={0} sx={{ p: 2.5, borderRadius: 3, border: '1px solid', borderColor: 'divider', display: 'flex', alignItems: 'center', gap: 2, transition: 'transform 0.2s', '&:hover': { transform: 'translateY(-2px)' } }}>
+              <Avatar sx={{ bgcolor: stat.bgColor, width: 48, height: 48 }}>
+                <Box sx={{ color: stat.color }}>{stat.icon}</Box>
+              </Avatar>
+              <Box>
+                <Typography variant="h5" fontWeight={700}>{stat.value}</Typography>
+                <Typography variant="body2" color="text.secondary">{stat.label}</Typography>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
               </Box>
             </Paper>
           </Grid>
@@ -122,11 +145,18 @@ const AdminDashboard = () => {
         {/* Admin Navigation Sidebar */}
         <Grid size={{ xs: 12, md: 3 }}>
           <Paper elevation={0} sx={{ borderRadius: 3, border: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
+<<<<<<< HEAD
             <Box sx={{ p: 2.5, background: 'linear-gradient(135deg, #1a237e, #3949ab)', color: 'white' }}>
               <Typography variant="subtitle1" fontWeight={700}>Admin Panel</Typography>
               <Typography variant="caption" sx={{ opacity: 0.8 }}>Manage your platform</Typography>
             </Box>
             <List sx={{ p: 1 }}>
+=======
+            <Box sx={{ p: 2, bgcolor: 'primary.main', color: 'white' }}>
+              <Typography variant="subtitle2" fontWeight={600}>Admin Panel</Typography>
+            </Box>
+            <List sx={{ p: 0.5 }}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
               {[
                 { icon: <Dashboard fontSize="small" />, label: 'Dashboard', path: '/admin/dashboard' },
                 { icon: <DirectionsBus fontSize="small" />, label: 'Manage Buses', path: '/admin/manage-buses' },
@@ -135,6 +165,7 @@ const AdminDashboard = () => {
                 { icon: <ConfirmationNumber fontSize="small" />, label: 'Manage Bookings', path: '/admin/manage-bookings' },
                 { icon: <People fontSize="small" />, label: 'Manage Users', path: '/admin/manage-users' },
               ].map((item) => (
+<<<<<<< HEAD
                 <ListItem key={item.label} disablePadding sx={{ mb: 0.3 }}>
                   <ListItemButton
                     selected={location.pathname === item.path}
@@ -146,6 +177,21 @@ const AdminDashboard = () => {
                     </ListItemIcon>
                     <ListItemText primary={item.label} primaryTypographyProps={{ fontSize: 14, fontWeight: location.pathname === item.path ? 700 : 500 }} />
                     <ChevronRight sx={{ fontSize: 16, opacity: 0.3 }} />
+=======
+                <ListItem key={item.label} disablePadding sx={{ mb: 0.5 }}>
+                  <ListItemButton
+                    selected={location.pathname === item.path}
+                    onClick={() => navigate(item.path)}
+                    sx={{
+                      borderRadius: 2,
+                      '&.Mui-selected': { bgcolor: 'primary.light', color: 'primary.main', '&:hover': { bgcolor: 'primary.light' } },
+                    }}
+                  >
+                    <ListItemIcon sx={{ minWidth: 36, color: location.pathname === item.path ? 'primary.main' : 'text.secondary' }}>
+                      {item.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={item.label} primaryTypographyProps={{ fontSize: 14, fontWeight: location.pathname === item.path ? 600 : 400 }} />
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                   </ListItemButton>
                 </ListItem>
               ))}
@@ -153,12 +199,21 @@ const AdminDashboard = () => {
           </Paper>
 
           {/* Quick Info */}
+<<<<<<< HEAD
           <Paper elevation={0} sx={{ borderRadius: 3, border: '1px solid', borderColor: 'warning.main', p: 2.5, mt: 3, bgcolor: '#fff8e1' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
               <Warning color="warning" />
               <Typography variant="subtitle2" fontWeight={700}>Quick Info</Typography>
             </Box>
             <Stack spacing={0.8}>
+=======
+          <Paper elevation={0} sx={{ borderRadius: 3, border: '1px solid', borderColor: 'warning.main', p: 2, mt: 3, bgcolor: 'warning.50' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
+              <Warning color="warning" />
+              <Typography variant="subtitle2" fontWeight={600}>Quick Info</Typography>
+            </Box>
+            <Stack spacing={0.5}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
               <Typography variant="body2" color="text.secondary">&bull; {stats?.totalBuses || 0} buses registered</Typography>
               <Typography variant="body2" color="text.secondary">&bull; {stats?.activeRoutes || 0} active routes</Typography>
               <Typography variant="body2" color="text.secondary">&bull; {stats?.totalBookings || 0} total bookings</Typography>
@@ -170,8 +225,18 @@ const AdminDashboard = () => {
         <Grid size={{ xs: 12, md: 9 }}>
           <Paper elevation={0} sx={{ borderRadius: 3, border: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
             <Box sx={{ p: { xs: 2, md: 3 }, pb: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+<<<<<<< HEAD
               <Typography variant="h6" fontWeight={700}>Recent Bookings</Typography>
               <Button size="small" variant="outlined" onClick={() => navigate('/admin/manage-bookings')} sx={{ borderRadius: 2, fontWeight: 600 }}>
+=======
+              <Typography variant="h6" fontWeight={600}>Recent Bookings</Typography>
+              <Button
+                size="small"
+                variant="outlined"
+                onClick={() => navigate('/admin/manage-bookings')}
+                sx={{ textTransform: 'none', borderRadius: 2 }}
+              >
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                 View All
               </Button>
             </Box>
@@ -183,25 +248,41 @@ const AdminDashboard = () => {
               )}
               {recentBookings.map((booking, index) => (
                 <Box key={booking.id}>
+<<<<<<< HEAD
                   <ListItem alignItems="flex-start" sx={{ px: { xs: 2, md: 3 }, py: 1.5 }}>
                     <ListItemAvatar>
                       <Avatar sx={{ bgcolor: 'primary.light', color: 'primary.main', fontWeight: 700 }}>
                         {(booking.user_name || 'U')[0].toUpperCase()}
+=======
+                  <ListItem alignItems="flex-start" sx={{ px: { xs: 2, md: 3 } }}>
+                    <ListItemAvatar>
+                      <Avatar sx={{ bgcolor: 'primary.light', color: 'primary.main' }}>
+                        {(booking.user_name || 'U')[0]}
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                       </Avatar>
                     </ListItemAvatar>
                     <ListItemText
                       primary={
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+<<<<<<< HEAD
                           <Typography variant="subtitle2" fontWeight={700}>{booking.user_name || 'User'}</Typography>
                           <Chip label={booking.status} size="small" color={booking.status === 'confirmed' ? 'success' : booking.status === 'pending' ? 'warning' : 'error'} sx={{ borderRadius: 1, fontSize: 10, fontWeight: 700 }} />
+=======
+                          <Typography variant="subtitle2" fontWeight={600}>{booking.user_name || 'User'}</Typography>
+                          <Chip label={booking.status} size="small" color={booking.status === 'confirmed' ? 'success' : booking.status === 'pending' ? 'warning' : 'error'} sx={{ borderRadius: 1, fontSize: 11, fontWeight: 600 }} />
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                         </Box>
                       }
                       secondary={
                         <Box sx={{ mt: 0.5 }}>
                           <Typography variant="body2" color="text.secondary">
+<<<<<<< HEAD
                             {booking.bus_name ? `${booking.bus_name} - ` : ''}
                             {booking.seats?.length || 0} seat{(booking.seats?.length || 0) > 1 ? 's' : ''} &bull;
                             ${parseFloat(booking.total_fare || 0).toFixed(2)}
+=======
+                            {booking.bus_name ? `${booking.bus_name} - ` : ''} {booking.seats?.length || 0} seat{(booking.seats?.length || 0) > 1 ? 's' : ''} &bull; ${parseFloat(booking.total_fare || 0).toFixed(2)}
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                           </Typography>
                           <Typography variant="caption" color="text.secondary">
                             {booking.booking_date ? new Date(booking.booking_date).toLocaleString() : ''}

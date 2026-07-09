@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { queryGSI, scanTable } from '../config/dynamoClient.js';
+=======
+import pool from '../config/database.js';
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 
 export const searchBuses = async (req, res, next) => {
   try {
@@ -10,6 +14,7 @@ export const searchBuses = async (req, res, next) => {
 
     const minSeats = parseInt(passengers) || 1;
 
+<<<<<<< HEAD
     // Query schedules by route cities + date via GSI1
     const gsiKey = `ROUTE_CITY#${from.toLowerCase()}#${to.toLowerCase()}`;
     const schedules = await queryGSI('GSI1', gsiKey, {
@@ -41,6 +46,36 @@ export const searchBuses = async (req, res, next) => {
     const buses = filtered.map((s) => {
       const dep = s.departure_time ? s.departure_time.slice(0, 5) : '';
       const arr = s.arrival_time ? s.arrival_time.slice(0, 5) : '';
+=======
+    const result = await pool.query(
+      `SELECT s.id,
+              b.id as bus_id, b.name, b.type, b.total_seats, b.amenities, b.operator, b.registration_number,
+              r.from_city, r.to_city, r.distance, r.duration as route_duration,
+              s.date, s.departure_time, s.arrival_time, s.price, s.available_seats,
+              COALESCE(rv.avg_rating, 0) as rating,
+              COALESCE(rv.total_reviews, 0) as total_ratings
+       FROM schedules s
+       JOIN buses b ON s.bus_id = b.id
+       JOIN routes r ON s.route_id = r.id
+       LEFT JOIN (
+         SELECT bus_id, ROUND(AVG(rating)::numeric, 1) as avg_rating, COUNT(*) as total_reviews
+         FROM reviews GROUP BY bus_id
+       ) rv ON b.id = rv.bus_id
+       WHERE LOWER(r.from_city) = LOWER($1)
+         AND LOWER(r.to_city) = LOWER($2)
+         AND s.date = $3
+         AND s.status = 'active'
+         AND b.status = 'active'
+         AND s.available_seats >= $4
+       ORDER BY s.departure_time ASC`,
+      [from, to, date, minSeats]
+    );
+
+    // Calculate durations for each bus
+    const buses = result.rows.map((row) => {
+      const dep = row.departure_time.slice(0, 5);
+      const arr = row.arrival_time.slice(0, 5);
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
       const [depH, depM] = dep.split(':').map(Number);
       const [arrH, arrM] = arr.split(':').map(Number);
       let diffMinutes = (arrH * 60 + arrM) - (depH * 60 + depM);
@@ -49,6 +84,7 @@ export const searchBuses = async (req, res, next) => {
       const mins = diffMinutes % 60;
       const duration = `${hours}h${mins > 0 ? ` ${mins}m` : ''}`;
 
+<<<<<<< HEAD
       const ratings = ratingsMap[s.bus_id] || { rating: 0, totalRatings: 0 };
 
       return {
@@ -73,6 +109,27 @@ export const searchBuses = async (req, res, next) => {
     // Sort by departure time
     buses.sort((a, b) => a.departureTime.localeCompare(b.departureTime));
 
+=======
+      return {
+        _id: row.id,
+        name: row.name,
+        type: row.type,
+        departureTime: dep,
+        arrivalTime: arr,
+        duration,
+        price: parseFloat(row.price),
+        totalSeats: row.total_seats,
+        availableSeats: row.available_seats,
+        amenities: row.amenities || [],
+        rating: parseFloat(row.rating) || 0,
+        totalRatings: parseInt(row.total_ratings) || 0,
+        from: row.from_city,
+        to: row.to_city,
+        date: row.date,
+      };
+    });
+
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
     res.json({ buses, total: buses.length });
   } catch (err) {
     next(err);
@@ -81,6 +138,7 @@ export const searchBuses = async (req, res, next) => {
 
 export const getPopularRoutes = async (req, res, next) => {
   try {
+<<<<<<< HEAD
     // Get all routes
     const routes = await scanTable({
       filterExpression: '#type = :type AND #status = :status',
@@ -131,6 +189,19 @@ export const getPopularRoutes = async (req, res, next) => {
       .slice(0, 8);
 
     res.json({ routes: popularRoutes });
+=======
+    const result = await pool.query(
+      `SELECT r.from_city, r.to_city, r.base_price, COUNT(b.id) as booking_count
+       FROM routes r
+       LEFT JOIN schedules s ON r.id = s.route_id
+       LEFT JOIN bookings b ON s.id = b.schedule_id
+       WHERE r.status = 'active'
+       GROUP BY r.id
+       ORDER BY booking_count DESC
+       LIMIT 8`
+    );
+    res.json({ routes: result.rows });
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   } catch (err) {
     next(err);
   }

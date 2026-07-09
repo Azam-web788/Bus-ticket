@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+/* Minimal custom styles - MUI handles most styling */
+
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 html {
   scroll-behavior: smooth;
 }
@@ -10,19 +15,28 @@ html {
 
 /* Smooth fade-in transition for route changes */
 main {
+<<<<<<< HEAD
   animation: fadeIn 0.4s ease-out;
+=======
+  animation: fadeIn 0.3s ease;
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+<<<<<<< HEAD
     transform: translateY(12px);
+=======
+    transform: translateY(8px);
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+<<<<<<< HEAD
 
 /* Subtle hover glow for cards */
 .hover-glow {
@@ -46,3 +60,5 @@ main {
 .stagger-item:nth-child(6) { animation-delay: 0.3s; }
 .stagger-item:nth-child(7) { animation-delay: 0.35s; }
 .stagger-item:nth-child(8) { animation-delay: 0.4s; }
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92

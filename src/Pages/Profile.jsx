@@ -24,8 +24,11 @@ import {
   CalendarToday,
   ConfirmationNumber,
   Logout,
+<<<<<<< HEAD
   Badge,
   ArrowForward,
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 } from '@mui/icons-material';
 import { authAPI, bookingAPI } from '../services/api';
 
@@ -56,6 +59,10 @@ const Profile = () => {
           phone: data.user.phone || '',
         });
 
+<<<<<<< HEAD
+=======
+        // Fetch bookings stats
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         try {
           const { data: bookingData } = await bookingAPI.getMyBookings();
           const bks = bookingData.bookings || [];
@@ -103,7 +110,11 @@ const Profile = () => {
   if (loading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
+<<<<<<< HEAD
         <CircularProgress size={48} thickness={4} />
+=======
+        <CircularProgress size={48} />
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
       </Box>
     );
   }
@@ -121,6 +132,7 @@ const Profile = () => {
 
       <Paper elevation={0} sx={{ borderRadius: 4, border: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
         {/* Profile Header */}
+<<<<<<< HEAD
         <Box
           sx={{
             background: 'linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%)',
@@ -195,6 +207,25 @@ const Profile = () => {
                   '&:hover': { bgcolor: 'grey.100' },
                 }}
               >
+=======
+        <Box sx={{ background: 'linear-gradient(135deg, #1a237e, #3949ab)', p: { xs: 3, md: 4 }, display: 'flex', alignItems: 'center', gap: 3, flexWrap: 'wrap' }}>
+          <Avatar sx={{ width: 80, height: 80, bgcolor: 'primary.light', fontSize: 32, fontWeight: 700, border: '3px solid white' }}>
+            {user.name?.[0]?.toUpperCase() || 'U'}
+          </Avatar>
+          <Box sx={{ color: 'white' }}>
+            <Typography variant="h5" fontWeight={700}>{user.name || 'User'}</Typography>
+            <Typography variant="body2" sx={{ opacity: 0.8 }}>{user.role === 'admin' ? 'Administrator' : 'Passenger'}</Typography>
+          </Box>
+          <Box sx={{ ml: 'auto', display: 'flex', gap: 1 }}>
+            {!isEditing ? (
+              <Button variant="contained" startIcon={<Edit />} onClick={() => setIsEditing(true)}
+                sx={{ bgcolor: 'rgba(255,255,255,0.2)', color: 'white', textTransform: 'none', borderRadius: 2, '&:hover': { bgcolor: 'rgba(255,255,255,0.3)' }, backdropFilter: 'blur(8px)' }}>
+                Edit Profile
+              </Button>
+            ) : (
+              <Button variant="contained" startIcon={<Save />} onClick={handleSave}
+                sx={{ bgcolor: 'white', color: 'primary.main', textTransform: 'none', borderRadius: 2, '&:hover': { bgcolor: 'grey.100' } }}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                 Save
               </Button>
             )}
@@ -202,6 +233,7 @@ const Profile = () => {
         </Box>
 
         {/* Stats */}
+<<<<<<< HEAD
         <Box
           sx={{
             px: { xs: 2, md: 4 },
@@ -228,18 +260,46 @@ const Profile = () => {
                 </Box>
               </Grid>
             ))}
+=======
+        <Box sx={{ px: { xs: 2, md: 4 }, py: 2, bgcolor: 'grey.50' }}>
+          <Grid container spacing={2}>
+            <Grid size={{ xs: 6, md: 4 }}>
+              <Box sx={{ textAlign: 'center' }}>
+                <Typography variant="h5" fontWeight={700} color="primary">{bookingsCount}</Typography>
+                <Typography variant="caption" color="text.secondary">Total Bookings</Typography>
+              </Box>
+            </Grid>
+            <Grid size={{ xs: 6, md: 4 }}>
+              <Box sx={{ textAlign: 'center' }}>
+                <Typography variant="h5" fontWeight={700} color="primary">${totalSpent.toFixed(0)}</Typography>
+                <Typography variant="caption" color="text.secondary">Total Spent</Typography>
+              </Box>
+            </Grid>
+            <Grid size={{ xs: 6, md: 4 }}>
+              <Box sx={{ textAlign: 'center' }}>
+                <Typography variant="h5" fontWeight={700} color="primary">{upcomingCount}</Typography>
+                <Typography variant="caption" color="text.secondary">Upcoming Trips</Typography>
+              </Box>
+            </Grid>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           </Grid>
         </Box>
 
         {/* Profile Form */}
+<<<<<<< HEAD
         <Box sx={{ p: { xs: 2.5, md: 4 } }}>
           <Typography variant="h6" fontWeight={700} gutterBottom>
             Personal Information
           </Typography>
+=======
+        <Box sx={{ p: { xs: 2, md: 4 } }}>
+          <Typography variant="h6" fontWeight={600} gutterBottom>Personal Information</Typography>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           <Divider sx={{ mb: 3 }} />
 
           <Grid container spacing={3}>
             <Grid size={{ xs: 12, sm: 6 }}>
+<<<<<<< HEAD
               <TextField
                 fullWidth
                 label="Full Name"
@@ -276,11 +336,35 @@ const Profile = () => {
                 disabled
                 InputProps={{ startAdornment: <CalendarToday color="action" sx={{ mr: 1 }} /> }}
               />
+=======
+              <TextField fullWidth label="Full Name" value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })} disabled={!isEditing}
+                InputProps={{ startAdornment: <Person color="action" sx={{ mr: 1 }} /> }}
+                sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }} />
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <TextField fullWidth label="Email" value={formData.email} disabled
+                InputProps={{ startAdornment: <Email color="action" sx={{ mr: 1 }} /> }}
+                sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }} />
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <TextField fullWidth label="Phone" value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })} disabled={!isEditing}
+                InputProps={{ startAdornment: <Phone color="action" sx={{ mr: 1 }} /> }}
+                sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }} />
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <TextField fullWidth label="Member Since"
+                value={new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} disabled
+                InputProps={{ startAdornment: <CalendarToday color="action" sx={{ mr: 1 }} /> }}
+                sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }} />
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             </Grid>
           </Grid>
 
           {user.role === 'admin' && (
             <Box sx={{ mt: 3 }}>
+<<<<<<< HEAD
               <Chip
                 icon={<ConfirmationNumber />}
                 label="Admin Account"
@@ -288,12 +372,16 @@ const Profile = () => {
                 variant="outlined"
                 sx={{ borderRadius: 1.5, fontWeight: 600 }}
               />
+=======
+              <Chip icon={<ConfirmationNumber />} label="Admin Account" color="primary" variant="outlined" />
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             </Box>
           )}
 
           <Divider sx={{ my: 3 }} />
 
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
+<<<<<<< HEAD
             <Button
               variant="contained"
               endIcon={<ArrowForward />}
@@ -311,6 +399,12 @@ const Profile = () => {
             >
               Logout
             </Button>
+=======
+            <Button variant="outlined" startIcon={<ConfirmationNumber />} onClick={() => navigate('/my-bookings')}
+              sx={{ textTransform: 'none', borderRadius: 2 }}>View My Bookings</Button>
+            <Button variant="outlined" color="error" startIcon={<Logout />} onClick={handleLogout}
+              sx={{ textTransform: 'none', borderRadius: 2 }}>Logout</Button>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           </Box>
         </Box>
       </Paper>

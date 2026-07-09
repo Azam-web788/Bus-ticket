@@ -18,6 +18,7 @@ const Seat = ({ seat, onSelect, selected }) => {
   };
 
   const getSeatColor = () => {
+<<<<<<< HEAD
     if (isBooked) return '#e0e0e0';
     if (selected) return '#ff6f00';
     return '#e8eaf6';
@@ -33,6 +34,22 @@ const Seat = ({ seat, onSelect, selected }) => {
     if (isBooked) return 'transparent';
     if (selected) return '#ff6f00';
     return '#c5cae9';
+=======
+    if (isBooked) return 'action.disabledBackground';
+    if (selected) return 'secondary.main';
+    return 'primary.light';
+  };
+
+  const getSeatIconColor = () => {
+    if (isBooked) return 'action.disabled';
+    if (selected) return 'secondary.contrastText';
+    return 'primary.main';
+  };
+
+  const getCursor = () => {
+    if (isBooked) return 'not-allowed';
+    return 'pointer';
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   };
 
   const getTooltip = () => {
@@ -42,7 +59,11 @@ const Seat = ({ seat, onSelect, selected }) => {
   };
 
   return (
+<<<<<<< HEAD
     <Tooltip title={getTooltip()} arrow placement="top" sx={{ '& .MuiTooltip-tooltip': { fontWeight: 500 } }}>
+=======
+    <Tooltip title={getTooltip()} arrow placement="top">
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
       <Box
         role="button"
         tabIndex={isBooked ? -1 : 0}
@@ -59,6 +80,7 @@ const Seat = ({ seat, onSelect, selected }) => {
           height: 40,
           borderRadius: 1.5,
           bgcolor: getSeatColor(),
+<<<<<<< HEAD
           cursor: isBooked ? 'not-allowed' : 'pointer',
           opacity: isBooked ? 0.5 : 1,
           transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -69,12 +91,23 @@ const Seat = ({ seat, onSelect, selected }) => {
           '&:hover': {
             transform: !isBooked ? 'scale(1.12) translateY(-2px)' : 'none',
             boxShadow: !isBooked ? '0 4px 12px rgba(26,35,126,0.2)' : 'none',
+=======
+          cursor: getCursor(),
+          opacity: isBooked ? 0.6 : 1,
+          transition: 'all 0.15s ease',
+          border: '2px solid',
+          borderColor: selected ? 'secondary.main' : isBooked ? 'transparent' : 'primary.light',
+          '&:hover': {
+            transform: !isBooked ? 'scale(1.1)' : 'none',
+            boxShadow: !isBooked ? '0 2px 8px rgba(0,0,0,0.15)' : 'none',
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           },
           '&:focus-visible': {
             outline: '2px solid',
             outlineColor: 'primary.main',
             outlineOffset: 2,
           },
+<<<<<<< HEAD
           '&:active': !isBooked ? { transform: 'scale(0.95)' } : {},
         }}
       >
@@ -98,6 +131,13 @@ const Seat = ({ seat, onSelect, selected }) => {
         >
           {number}
         </Box>
+=======
+        }}
+      >
+        <AirlineSeatReclineNormal
+          sx={{ fontSize: 18, color: getSeatIconColor() }}
+        />
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
       </Box>
     </Tooltip>
   );

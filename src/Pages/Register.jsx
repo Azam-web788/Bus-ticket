@@ -13,7 +13,10 @@ import {
   Divider,
   Alert,
   CircularProgress,
+<<<<<<< HEAD
   Stack,
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 } from '@mui/material';
 import {
   Person,
@@ -76,16 +79,24 @@ const Register = () => {
   return (
     <Box
       sx={{
+<<<<<<< HEAD
         minHeight: 'calc(100vh - 72px)',
         display: 'flex',
         alignItems: 'center',
         background: 'linear-gradient(135deg, #f0f2f5 0%, #e2e6ee 100%)',
+=======
+        minHeight: 'calc(100vh - 64px)',
+        display: 'flex',
+        alignItems: 'center',
+        background: 'linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%)',
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         py: 4,
       }}
     >
       <Container maxWidth="sm">
         <Paper
           elevation={0}
+<<<<<<< HEAD
           sx={{
             borderRadius: 4,
             border: '1px solid',
@@ -118,10 +129,27 @@ const Register = () => {
               Create Account
             </Typography>
             <Typography sx={{ color: 'rgba(255,255,255,0.8)', mt: 0.5 }}>
+=======
+          
+          sx={{
+            p: { xs: 3, md: 4 },
+            borderRadius: 4,
+            border: '1px solid',
+            borderColor: 'divider',
+          }}
+        >
+          <Box sx={{ textAlign: 'center', mb: 4 }}>
+            <DirectionsBus sx={{ fontSize: 48, color: 'primary.main', mb: 1 }} />
+            <Typography variant="h4" fontWeight={700}>
+              Create Account
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
               Sign up to start booking bus tickets
             </Typography>
           </Box>
 
+<<<<<<< HEAD
           <Box sx={{ p: { xs: 3, md: 4 } }}>
             {error && (
               <Alert severity="error" sx={{ mb: 2.5, borderRadius: 2 }}>
@@ -258,6 +286,142 @@ const Register = () => {
               </Link>
             </Typography>
           </Box>
+=======
+          {error && (
+            <Alert severity="error" sx={{ mb: 2, borderRadius: 2 }}>
+              {error}
+            </Alert>
+          )}
+
+          <form onSubmit={handleSubmit}>
+            <TextField
+              fullWidth
+              label="Full Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              margin="normal"
+              required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Person color="action" />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }}
+            />
+            <TextField
+              fullWidth
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              margin="normal"
+              required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Email color="action" />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }}
+            />
+            <TextField
+              fullWidth
+              label="Phone Number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              margin="normal"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Phone color="action" />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }}
+            />
+            <TextField
+              fullWidth
+              label="Password"
+              name="password"
+              type={showPassword ? 'text' : 'password'}
+              value={formData.password}
+              onChange={handleChange}
+              margin="normal"
+              required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Lock color="action" />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => setShowPassword(!showPassword)} edge="end" size="small">
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }}
+            />
+            <TextField
+              fullWidth
+              label="Confirm Password"
+              name="confirmPassword"
+              type={showPassword ? 'text' : 'password'}
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              margin="normal"
+              required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Lock color="action" />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }}
+            />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              size="large"
+              disabled={loading}
+              sx={{
+                textTransform: 'none',
+                borderRadius: 2,
+                fontWeight: 600,
+                py: 1.5,
+                mt: 2,
+                boxShadow: 'none',
+                '&:hover': { boxShadow: 'none' },
+              }}
+            >
+              {loading ? <CircularProgress size={24} color="inherit" /> : 'Create Account'}
+            </Button>
+          </form>
+
+          <Divider sx={{ my: 3 }}>
+            <Typography variant="caption" color="text.secondary">
+              OR
+            </Typography>
+          </Divider>
+
+          <Typography variant="body2" color="text.secondary" textAlign="center">
+            Already have an account?{' '}
+            <Link component={RouterLink} to="/login" fontWeight={600} underline="hover">
+              Sign in
+            </Link>
+          </Typography>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         </Paper>
       </Container>
     </Box>

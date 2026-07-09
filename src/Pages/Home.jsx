@@ -8,15 +8,19 @@ import {
   CreditCard,
   TrendingFlat,
   Star,
+<<<<<<< HEAD
   Shield,
   ArrowForward,
   Groups,
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 } from '@mui/icons-material';
 import SearchForm from '../Components/SearchForm';
 import { searchAPI } from '../services/api';
 
 const features = [
   {
+<<<<<<< HEAD
     icon: <DirectionsBus sx={{ fontSize: 36 }} />,
     title: 'Wide Network',
     description: '500+ bus operators across 2000+ routes nationwide',
@@ -43,6 +47,26 @@ const features = [
     description: 'Book in minutes with multiple secure payment options',
     color: '#d32f2f',
     bgColor: '#ffebee',
+=======
+    icon: <DirectionsBus sx={{ fontSize: 40 }} />,
+    title: 'Wide Network',
+    description: '500+ bus operators across 2000+ routes nationwide',
+  },
+  {
+    icon: <Security sx={{ fontSize: 40 }} />,
+    title: 'Safe Travel',
+    description: 'Verified operators with GPS-tracked buses',
+  },
+  {
+    icon: <SupportAgent sx={{ fontSize: 40 }} />,
+    title: '24/7 Support',
+    description: 'Round-the-clock customer support for your queries',
+  },
+  {
+    icon: <CreditCard sx={{ fontSize: 40 }} />,
+    title: 'Easy Booking',
+    description: 'Book in minutes with multiple payment options',
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   },
 ];
 
@@ -64,6 +88,10 @@ const Home = () => {
         const { data } = await searchAPI.getPopularRoutes();
         setPopularRoutes(data.routes || []);
       } catch {
+<<<<<<< HEAD
+=======
+        // Fallback to hardcoded routes if API fails
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         setPopularRoutes([
           { from_city: 'Lahore', to_city: 'Islamabad', base_price: 1200 },
           { from_city: 'Lahore', to_city: 'Karachi', base_price: 3500 },
@@ -86,9 +114,13 @@ const Home = () => {
       {/* Hero Section */}
       <Box
         sx={{
+<<<<<<< HEAD
           background: 'linear-gradient(-45deg, #0d1442 0%, #1a237e 30%, #283593 60%, #3949ab 100%)',
           backgroundSize: '400% 400%',
           animation: 'gradientShift 15s ease infinite',
+=======
+          background: 'linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%)',
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           color: 'white',
           pt: { xs: 6, md: 10 },
           pb: { xs: 8, md: 12 },
@@ -97,6 +129,7 @@ const Home = () => {
           '&::before': {
             content: '""',
             position: 'absolute',
+<<<<<<< HEAD
             top: '-30%',
             right: '-10%',
             width: '500px',
@@ -104,10 +137,19 @@ const Home = () => {
             borderRadius: '50%',
             background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)',
             animation: 'pulse 4s ease-in-out infinite',
+=======
+            top: '-50%',
+            right: '-20%',
+            width: '600px',
+            height: '600px',
+            borderRadius: '50%',
+            background: 'rgba(255,255,255,0.03)',
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           },
           '&::after': {
             content: '""',
             position: 'absolute',
+<<<<<<< HEAD
             bottom: '-20%',
             left: '-5%',
             width: '350px',
@@ -115,11 +157,20 @@ const Home = () => {
             borderRadius: '50%',
             background: 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)',
             animation: 'pulse 6s ease-in-out infinite 1s',
+=======
+            bottom: '-30%',
+            left: '-10%',
+            width: '400px',
+            height: '400px',
+            borderRadius: '50%',
+            background: 'rgba(255,255,255,0.03)',
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           },
         }}
       >
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Box sx={{ textAlign: 'center', mb: 6 }}>
+<<<<<<< HEAD
             <Box
               sx={{
                 display: 'inline-flex',
@@ -158,11 +209,21 @@ const Home = () => {
                   backgroundClip: 'text',
                 }}
               >
+=======
+            <Typography
+              variant="h2"
+              fontWeight={800}
+              sx={{ fontSize: { xs: '2rem', md: '3.5rem' }, mb: 2, lineHeight: 1.2 }}
+            >
+              Book Bus Tickets
+              <Box component="span" sx={{ color: 'primary.light', display: 'block' }}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                 With Ease &amp; Comfort
               </Box>
             </Typography>
             <Typography
               variant="h6"
+<<<<<<< HEAD
               sx={{
                 color: 'rgba(255,255,255,0.75)',
                 fontWeight: 400,
@@ -171,12 +232,16 @@ const Home = () => {
                 fontSize: { xs: '1rem', md: '1.2rem' },
                 lineHeight: 1.7,
               }}
+=======
+              sx={{ color: 'rgba(255,255,255,0.8)', fontWeight: 400, maxWidth: 600, mx: 'auto' }}
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             >
               Travel across the country with our extensive network of reliable bus operators.
               Best prices, guaranteed seats, and 24/7 support.
             </Typography>
           </Box>
 
+<<<<<<< HEAD
           <Box
             sx={{
               maxWidth: 950,
@@ -186,11 +251,15 @@ const Home = () => {
               },
             }}
           >
+=======
+          <Box sx={{ maxWidth: 900, mx: 'auto' }}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             <SearchForm />
           </Box>
         </Container>
       </Box>
 
+<<<<<<< HEAD
       {/* Stats Bar */}
       <Box
         sx={{
@@ -334,6 +403,70 @@ const Home = () => {
             {routesLoading ? (
               <Grid size={12} sx={{ textAlign: 'center', py: 4 }}>
                 <CircularProgress size={40} thickness={4} />
+=======
+      {/* Features Section */}
+      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
+        <Typography variant="h4" fontWeight={700} sx={{ textAlign: 'center' }} gutterBottom>
+          Why Choose BusTicket?
+        </Typography>
+        <Typography
+          variant="body1"
+          color="text.secondary"
+          sx={{ mb: 5, maxWidth: 600, mx: 'auto', textAlign: 'center' }}
+        >
+          We provide the best bus booking experience with guaranteed comfort and reliability
+        </Typography>
+        <Grid container spacing={3}>
+          {features.map((feature, index) => (
+            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+              <Paper
+                elevation={0}
+                sx={{
+                  p: 3,
+                  textAlign: 'center',
+                  borderRadius: 3,
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  transition: 'all 0.3s ease',
+                  height: '100%',
+                  '&:hover': {
+                    borderColor: 'primary.main',
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
+                  },
+                }}
+              >
+                <Box sx={{ color: 'primary.main', mb: 2 }}>{feature.icon}</Box>
+                <Typography variant="h6" fontWeight={600} gutterBottom>
+                  {feature.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {feature.description}
+                </Typography>
+              </Paper>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+
+      {/* Popular Routes Section */}
+      <Box sx={{ bgcolor: 'grey.50', py: { xs: 6, md: 8 } }}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" fontWeight={700} sx={{ textAlign: 'center' }} gutterBottom>
+            Popular Routes
+          </Typography>
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{ mb: 5, maxWidth: 600, mx: 'auto', textAlign: 'center' }}
+          >
+            Explore our most booked routes with the best deals
+          </Typography>
+          <Grid container spacing={3}>
+            {routesLoading ? (
+              <Grid size={12} sx={{ textAlign: 'center', py: 4 }}>
+                <CircularProgress size={32} />
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
               </Grid>
             ) : (
               popularRoutes.slice(0, 8).map((route, index) => (
@@ -341,11 +474,16 @@ const Home = () => {
                   <Paper
                     elevation={0}
                     sx={{
+<<<<<<< HEAD
                       borderRadius: 4,
+=======
+                      borderRadius: 3,
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                       overflow: 'hidden',
                       border: '1px solid',
                       borderColor: 'divider',
                       cursor: 'pointer',
+<<<<<<< HEAD
                       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                       height: '100%',
                       '&:hover': {
@@ -354,10 +492,18 @@ const Home = () => {
                         '& .route-image': {
                           transform: 'scale(1.08)',
                         },
+=======
+                      transition: 'all 0.3s ease',
+                      height: '100%',
+                      '&:hover': {
+                        transform: 'translateY(-4px)',
+                        boxShadow: '0 8px 30px rgba(0,0,0,0.12)',
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                       },
                     }}
                     onClick={() => navigate(`/search-results?from=${route.from_city}&to=${route.to_city}&date=${new Date().toISOString().split('T')[0]}&passengers=1`)}
                   >
+<<<<<<< HEAD
                     <Box sx={{ position: 'relative', overflow: 'hidden' }}>
                       <Box
                         className="route-image"
@@ -392,10 +538,22 @@ const Home = () => {
                       </Box>
                       <Box
                         sx={{
+=======
+                    <Box
+                      sx={{
+                        height: 140,
+                        background: `url(${routeImages[index % routeImages.length]})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        position: 'relative',
+                        '&::after': {
+                          content: '""',
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                           position: 'absolute',
                           bottom: 0,
                           left: 0,
                           right: 0,
+<<<<<<< HEAD
                           height: '60%',
                           background: 'linear-gradient(transparent, rgba(0,0,0,0.5))',
                         }}
@@ -420,6 +578,38 @@ const Home = () => {
                           <TrendingFlat sx={{ fontSize: 16, color: 'primary.main' }} />
                         </Box>
                         <Typography variant="subtitle1" fontWeight={700}>
+=======
+                          height: '50%',
+                          background: 'linear-gradient(transparent, rgba(0,0,0,0.4))',
+                        },
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          position: 'absolute',
+                          bottom: 8,
+                          left: 12,
+                          zIndex: 1,
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 0.5,
+                          color: 'white',
+                        }}
+                      >
+                        <Star sx={{ fontSize: 14 }} />
+                        <Typography variant="caption" fontWeight={600}>
+                          {(4.5 + index * 0.1).toFixed(1)}
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Box sx={{ p: 2 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+                        <Typography variant="subtitle2" fontWeight={600}>
+                          {route.from_city}
+                        </Typography>
+                        <TrendingFlat sx={{ fontSize: 16, color: 'primary.main' }} />
+                        <Typography variant="subtitle2" fontWeight={600}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                           {route.to_city}
                         </Typography>
                       </Box>
@@ -427,7 +617,11 @@ const Home = () => {
                         <Typography variant="body2" color="text.secondary">
                           Starting from
                         </Typography>
+<<<<<<< HEAD
                         <Typography variant="h6" fontWeight={800} color="primary">
+=======
+                        <Typography variant="h6" fontWeight={700} color="primary">
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                           Rs. {route.base_price || route.price}
                         </Typography>
                       </Box>
@@ -441,6 +635,7 @@ const Home = () => {
       </Box>
 
       {/* CTA Section */}
+<<<<<<< HEAD
       <Box
         sx={{
           py: { xs: 6, md: 10 },
@@ -486,12 +681,29 @@ const Home = () => {
                 fontWeight: 700,
               }}
               endIcon={<ArrowForward />}
+=======
+      <Box sx={{ py: { xs: 6, md: 8 } }}>
+        <Container maxWidth="sm" sx={{ textAlign: 'center' }}>
+          <Typography variant="h4" fontWeight={700} gutterBottom>
+            Ready to Travel?
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+            Join thousands of happy travelers. Book your bus ticket now and enjoy a comfortable journey.
+          </Typography>
+          <Stack direction="row" spacing={2} sx={{ justifyContent: 'center' }}>
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              sx={{ textTransform: 'none', borderRadius: 2, fontWeight: 600, px: 4 }}
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             >
               Search Buses
             </Button>
             <Button
               variant="outlined"
               size="large"
+<<<<<<< HEAD
               sx={{
                 px: 5,
                 py: 1.5,
@@ -503,6 +715,11 @@ const Home = () => {
                   bgcolor: 'rgba(255,255,255,0.1)',
                 },
               }}
+=======
+              component="a"
+              href="#"
+              sx={{ textTransform: 'none', borderRadius: 2, fontWeight: 600, px: 4 }}
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             >
               Learn More
             </Button>

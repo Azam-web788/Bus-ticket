@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon src/index.js",
+<<<<<<< HEAD
     "dev": "nodemon src/index.js",
     "seed": "node scripts/seedDynamoDB.js"
   },
@@ -13,12 +14,22 @@
     "@codegenie/serverless-express": "^5.0.0",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+=======
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.14",
+<<<<<<< HEAD
     "pg": "^8.13.1",
     "uuid": "^11.1.0"
+=======
+    "pg": "^8.13.1"
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   }
 }

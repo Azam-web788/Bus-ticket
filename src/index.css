@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap');
+=======
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 
 * {
   margin: 0;
@@ -11,7 +15,10 @@ body {
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
   overflow-x: hidden;
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 }
 
 #root {
@@ -20,7 +27,11 @@ body {
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
+<<<<<<< HEAD
   width: 6px;
+=======
+  width: 8px;
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 }
 
 ::-webkit-scrollbar-track {
@@ -28,6 +39,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
+<<<<<<< HEAD
   background: linear-gradient(180deg, #1a237e, #3949ab);
   border-radius: 3px;
 }
@@ -78,4 +90,12 @@ img {
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+=======
+  background: #c4c4c4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 }

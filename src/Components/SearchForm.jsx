@@ -8,7 +8,10 @@ import {
   Grid,
   Autocomplete,
   InputAdornment,
+<<<<<<< HEAD
   IconButton,
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -59,6 +62,7 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
       <Paper
         elevation={0}
         sx={{
+<<<<<<< HEAD
           p: { xs: 2.5, md: 3.5 },
           borderRadius: 4,
           bgcolor: 'rgba(255,255,255,0.97)',
@@ -66,6 +70,16 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
       >
         <form onSubmit={handleSearch}>
           <Grid container spacing={1.5} sx={{ alignItems: 'center' }}>
+=======
+          p: { xs: 2, md: 3 },
+          borderRadius: 3,
+          border: '1px solid',
+          borderColor: 'divider',
+        }}
+      >
+        <form onSubmit={handleSearch}>
+          <Grid container spacing={2} sx={{ alignItems: 'center' }}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             <Grid size={{ xs: 12, md: 3.5 }}>
               <Autocomplete
                 inputValue={from}
@@ -78,7 +92,10 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
                     label="From"
                     required
                     size="small"
+<<<<<<< HEAD
                     placeholder="Departure city"
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                     InputProps={{
                       ...params.InputProps,
                       startAdornment: (
@@ -87,18 +104,22 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
                         </InputAdornment>
                       ),
                     }}
+<<<<<<< HEAD
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         bgcolor: 'grey.50',
                         borderRadius: 3,
                       },
                     }}
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                   />
                 )}
               />
             </Grid>
 
             <Grid size={{ xs: 12, md: 0.5 }} sx={{ textAlign: 'center' }}>
+<<<<<<< HEAD
               <IconButton
                 onClick={handleSwap}
                 size="small"
@@ -115,6 +136,22 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
               >
                 <SwapHoriz color="primary" sx={{ fontSize: 20 }} />
               </IconButton>
+=======
+              <Button
+                variant="outlined"
+                size="small"
+                onClick={handleSwap}
+                sx={{
+                  minWidth: 40,
+                  height: 40,
+                  borderRadius: 2,
+                  borderColor: 'divider',
+                  '&:hover': { borderColor: 'primary.main' },
+                }}
+              >
+                <SwapHoriz color="primary" />
+              </Button>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             </Grid>
 
             <Grid size={{ xs: 12, md: 3.5 }}>
@@ -129,7 +166,10 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
                     label="To"
                     required
                     size="small"
+<<<<<<< HEAD
                     placeholder="Arrival city"
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                     InputProps={{
                       ...params.InputProps,
                       startAdornment: (
@@ -138,12 +178,15 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
                         </InputAdornment>
                       ),
                     }}
+<<<<<<< HEAD
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         bgcolor: 'grey.50',
                         borderRadius: 3,
                       },
                     }}
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                   />
                 )}
               />
@@ -158,6 +201,7 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
                     size: 'small',
                     required: true,
                     fullWidth: true,
+<<<<<<< HEAD
                     placeholder: 'Travel date',
                     sx: {
                       '& .MuiOutlinedInput-root': {
@@ -166,6 +210,8 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
                       },
                       '& .MuiInputBase-input': { py: 1.2 },
                     },
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                     slotProps: {
                       input: {
                         startAdornment: (
@@ -187,7 +233,10 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
                 value={passengers}
                 onChange={(e) => setPassengers(Math.max(1, Math.min(10, Number(e.target.value))))}
                 size="small"
+<<<<<<< HEAD
                 placeholder="1"
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                 slotProps={{
                   htmlInput: { min: 1, max: 10 },
                   input: {
@@ -198,12 +247,15 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
                     ),
                   },
                 }}
+<<<<<<< HEAD
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     bgcolor: 'grey.50',
                     borderRadius: 3,
                   },
                 }}
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
               />
             </Grid>
 
@@ -214,11 +266,20 @@ const SearchForm = ({ initialFrom = '', initialTo = '', initialDate = null, init
                 fullWidth
                 size="large"
                 sx={{
+<<<<<<< HEAD
                   height: 44,
                   borderRadius: 3,
                   fontWeight: 700,
                   fontSize: 15,
                   letterSpacing: 0.5,
+=======
+                  height: 40,
+                  textTransform: 'none',
+                  borderRadius: 2,
+                  fontWeight: 600,
+                  boxShadow: 'none',
+                  '&:hover': { boxShadow: 'none' },
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                 }}
                 startIcon={<SearchIcon />}
               >

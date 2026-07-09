@@ -19,6 +19,7 @@ import {
   AccessTime,
   LocationOn,
   CheckCircle,
+<<<<<<< HEAD
   CalendarToday,
   ConfirmationNumber,
   Home,
@@ -30,6 +31,11 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 import TicketPDF from '../Components/TicketPDF';
 import SeatLayout from '../Components/SeatLayout';
 import { bookingAPI, scheduleAPI } from '../services/api';
+=======
+} from '@mui/icons-material';
+import SeatLayout from '../Components/SeatLayout';
+import { searchAPI, bookingAPI, scheduleAPI } from '../services/api';
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 
 const SeatSelection = () => {
   const { id } = useParams();
@@ -55,6 +61,10 @@ const SeatSelection = () => {
   useEffect(() => {
     const fetchBusDetails = async () => {
       try {
+<<<<<<< HEAD
+=======
+        // Fetch schedule details
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         const [schedRes, seatsRes] = await Promise.all([
           scheduleAPI.getById(id),
           bookingAPI.getBookedSeats(id).catch(() => ({ data: { bookedSeats: [] } })),
@@ -104,6 +114,7 @@ const SeatSelection = () => {
     return `${h12}:${m} ${ampm}`;
   };
 
+<<<<<<< HEAD
   const formatDate = (dateStr) => {
     if (!dateStr) return '--';
     return new Date(dateStr).toLocaleDateString('en-US', {
@@ -114,6 +125,8 @@ const SeatSelection = () => {
     });
   };
 
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   const handleSeatsSelected = (seats) => {
     setSelectedSeats(seats);
   };
@@ -133,6 +146,7 @@ const SeatSelection = () => {
 
   if (loading) {
     return (
+<<<<<<< HEAD
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
         <Box sx={{ textAlign: 'center' }}>
           <Box sx={{ position: 'relative', display: 'inline-flex', mb: 2 }}>
@@ -145,11 +159,16 @@ const SeatSelection = () => {
             Loading seat layout...
           </Typography>
         </Box>
+=======
+      <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
+        <CircularProgress size={48} />
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
       </Box>
     );
   }
 
   if (bookingConfirmed) {
+<<<<<<< HEAD
     const totalAmount = selectedSeats.length * (bus?.price || price);
     return (
       <Container maxWidth="sm" sx={{ py: 6 }}>
@@ -359,6 +378,46 @@ const SeatSelection = () => {
               </Typography>
             </Box>
           </Box>
+=======
+    return (
+      <Container maxWidth="sm" sx={{ py: 8 }}>
+        <Paper elevation={0} sx={{ p: { xs: 3, md: 4 }, borderRadius: 4, border: '1px solid', borderColor: 'divider', textAlign: 'center' }}>
+          <CheckCircle sx={{ fontSize: 72, color: 'success.main', mb: 2 }} />
+          <Typography variant="h4" fontWeight={700} gutterBottom>Booking Confirmed!</Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+            Your seats have been booked successfully. You will receive a confirmation email shortly.
+          </Typography>
+          <Box sx={{ bgcolor: 'grey.50', borderRadius: 2, p: 2, mb: 3, textAlign: 'left' }}>
+            <Stack spacing={1}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="text.secondary">Bus</Typography>
+                <Typography variant="body2" fontWeight={600}>{bus?.name || 'Express Line'}</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="text.secondary">Route</Typography>
+                <Typography variant="body2" fontWeight={600}>{bus?.from || from} &rarr; {bus?.to || to}</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="text.secondary">Seats</Typography>
+                <Typography variant="body2" fontWeight={600}>{selectedSeats.join(', ')}</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="text.secondary">Total</Typography>
+                <Typography variant="body2" fontWeight={700} color="primary">
+                  ${(selectedSeats.length * (bus?.price || price)).toFixed(2)}
+                </Typography>
+              </Box>
+            </Stack>
+          </Box>
+          <Stack direction="row" spacing={2} justifyContent="center">
+            <Button variant="contained" onClick={() => navigate('/my-bookings')} sx={{ textTransform: 'none', borderRadius: 2, px: 4 }}>
+              View My Bookings
+            </Button>
+            <Button variant="outlined" onClick={() => navigate('/')} sx={{ textTransform: 'none', borderRadius: 2, px: 4 }}>
+              Go Home
+            </Button>
+          </Stack>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         </Paper>
       </Container>
     );
@@ -366,6 +425,7 @@ const SeatSelection = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 2, md: 4 } }}>
+<<<<<<< HEAD
       {/* Back Button */}
       <Button
         startIcon={<ArrowBack />}
@@ -378,6 +438,9 @@ const SeatSelection = () => {
           '&:hover': { bgcolor: 'primary.light', color: 'primary.main' },
         }}
       >
+=======
+      <Button startIcon={<ArrowBack />} onClick={() => navigate(-1)} sx={{ mb: 2, textTransform: 'none', borderRadius: 2 }}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         Back to bus details
       </Button>
 
@@ -387,6 +450,7 @@ const SeatSelection = () => {
 
       <Grid container spacing={3}>
         <Grid size={{ xs: 12, md: 8 }}>
+<<<<<<< HEAD
           {/* Journey Info Card */}
           <Paper
             elevation={0}
@@ -451,6 +515,39 @@ const SeatSelection = () => {
                   {bus?.from || from} &rarr; {bus?.to || to}
                 </Typography>
               </Box>
+=======
+          {/* Journey Info */}
+          <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 3, border: '1px solid', borderColor: 'divider', mb: 3 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <DirectionsBus color="primary" />
+                <Box>
+                  <Typography variant="h6" fontWeight={600}>{bus?.name || 'Express Line'}</Typography>
+                  <Typography variant="body2" color="text.secondary">{bus?.type || 'AC Sleeper'}</Typography>
+                </Box>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <Box>
+                  <Typography variant="body2" color="text.secondary">Date</Typography>
+                  <Typography variant="body2" fontWeight={600}>
+                    {new Date(bus?.date || date).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
+                  </Typography>
+                </Box>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Typography variant="body2" color="text.secondary">Time</Typography>
+                  <Typography variant="body2" fontWeight={600}>
+                    {formatTime(bus?.departureTime || departureTime)} - {formatTime(bus?.arrivalTime || arrivalTime)}
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Divider sx={{ my: 2 }} />
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <LocationOn color="primary" fontSize="small" />
+              <Typography variant="body2" fontWeight={500}>
+                {bus?.from || from} &rarr; {bus?.to || to}
+              </Typography>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             </Box>
           </Paper>
 
@@ -465,6 +562,7 @@ const SeatSelection = () => {
 
         {/* Booking Summary */}
         <Grid size={{ xs: 12, md: 4 }}>
+<<<<<<< HEAD
           <Paper
             elevation={0}
             sx={{
@@ -611,6 +709,82 @@ const SeatSelection = () => {
                 </Box>
               )}
             </Box>
+=======
+          <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 3, border: '1px solid', borderColor: 'divider', position: 'sticky', top: 88 }}>
+            <Typography variant="subtitle1" fontWeight={600} gutterBottom>Booking Summary</Typography>
+
+            <Stack spacing={1.5} sx={{ mb: 2 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="text.secondary">Bus</Typography>
+                <Typography variant="body2" fontWeight={600}>{bus?.name || 'Express Line'}</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="text.secondary">Route</Typography>
+                <Typography variant="body2" fontWeight={600}>{bus?.from || from} &rarr; {bus?.to || to}</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="text.secondary">Date</Typography>
+                <Typography variant="body2" fontWeight={600}>
+                  {new Date(bus?.date || date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                </Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="text.secondary">Time</Typography>
+                <Typography variant="body2" fontWeight={600}>
+                  {formatTime(bus?.departureTime || departureTime)} - {formatTime(bus?.arrivalTime || arrivalTime)}
+                </Typography>
+              </Box>
+            </Stack>
+
+            <Divider sx={{ my: 2 }} />
+
+            {selectedSeats.length > 0 ? (
+              <>
+                <Box sx={{ mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary" gutterBottom>Selected Seats</Typography>
+                  <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap>
+                    {selectedSeats.map((seat) => (
+                      <Chip key={seat} label={seat} size="small" color="secondary" variant="outlined" sx={{ borderRadius: 1 }} />
+                    ))}
+                  </Stack>
+                </Box>
+
+                <Stack spacing={1} sx={{ mb: 2 }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Typography variant="body2" color="text.secondary">Price per seat</Typography>
+                    <Typography variant="body2">Rs. {(bus?.price || price).toFixed(0)}</Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Typography variant="body2" color="text.secondary">Seats</Typography>
+                    <Typography variant="body2">x{selectedSeats.length}</Typography>
+                  </Box>
+                </Stack>
+
+                <Divider sx={{ my: 1.5 }} />
+
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
+                  <Typography variant="h6" fontWeight={700}>Total</Typography>
+                  <Typography variant="h6" fontWeight={700} color="primary">
+                    Rs. {(selectedSeats.length * (bus?.price || price)).toFixed(0)}
+                  </Typography>
+                </Box>
+
+                <Button
+                  variant="contained"
+                  fullWidth
+                  size="large"
+                  onClick={handleBooking}
+                  sx={{ textTransform: 'none', borderRadius: 2, fontWeight: 600, py: 1.5, boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
+                >
+                  Confirm Booking
+                </Button>
+              </>
+            ) : (
+              <Box sx={{ textAlign: 'center', py: 3 }}>
+                <Typography variant="body2" color="text.secondary">Select your seats from the layout to see the price summary</Typography>
+              </Box>
+            )}
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           </Paper>
         </Grid>
       </Grid>

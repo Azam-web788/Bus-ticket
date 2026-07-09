@@ -26,27 +26,40 @@ const theme = createTheme({
       main: '#1a237e',
       light: '#e8eaf6',
       dark: '#0d1442',
+<<<<<<< HEAD
       contrastText: '#ffffff',
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
     },
     secondary: {
       main: '#ff6f00',
       light: '#fff8e1',
+<<<<<<< HEAD
       dark: '#c43e00',
       contrastText: '#ffffff',
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
     },
     success: {
       main: '#2e7d32',
       light: '#e8f5e9',
+<<<<<<< HEAD
       dark: '#1b5e20',
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
     },
     warning: {
       main: '#ed6c02',
       light: '#fff3e0',
+<<<<<<< HEAD
       dark: '#c43e00',
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
     },
     error: {
       main: '#d32f2f',
       light: '#ffebee',
+<<<<<<< HEAD
       dark: '#b71c1c',
     },
     background: {
@@ -84,12 +97,34 @@ const theme = createTheme({
     '0px 10px 40px rgba(26,35,126,0.1), 0px 6px 12px rgba(26,35,126,0.04)',
     ...Array(18).fill('none'),
   ],
+=======
+    },
+    background: {
+      default: '#fafafa',
+      paper: '#ffffff',
+    },
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    h1: { fontWeight: 800 },
+    h2: { fontWeight: 700 },
+    h3: { fontWeight: 700 },
+    h4: { fontWeight: 700 },
+    h5: { fontWeight: 600 },
+    h6: { fontWeight: 600 },
+    button: { textTransform: 'none', fontWeight: 600 },
+  },
+  shape: {
+    borderRadius: 8,
+  },
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
           textTransform: 'none',
           fontWeight: 600,
+<<<<<<< HEAD
           letterSpacing: '0.01em',
           borderRadius: 10,
           padding: '8px 20px',
@@ -163,6 +198,8 @@ const theme = createTheme({
       styleOverrides: {
         paper: {
           borderRadius: 16,
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
         },
       },
     },

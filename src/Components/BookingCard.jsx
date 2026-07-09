@@ -7,7 +7,11 @@ import {
   Box,
   Chip,
   Divider,
+<<<<<<< HEAD
   Stack,
+=======
+  IconButton,
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
 } from '@mui/material';
 import {
   DirectionsBus,
@@ -15,6 +19,7 @@ import {
   CalendarToday,
   Download,
   Cancel,
+<<<<<<< HEAD
   LocationOn,
   ConfirmationNumber,
 } from '@mui/icons-material';
@@ -30,6 +35,18 @@ const statusColors = {
 
 const BookingCard = ({ booking, onCancel }) => {
   const user = JSON.parse(localStorage.getItem('user') || 'null');
+=======
+} from '@mui/icons-material';
+
+const statusColors = {
+  confirmed: 'success',
+  pending: 'warning',
+  cancelled: 'error',
+  completed: 'info',
+};
+
+const BookingCard = ({ booking, onCancel }) => {
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   const {
     _id,
     busName,
@@ -64,8 +81,11 @@ const BookingCard = ({ booking, onCancel }) => {
     return `${h12}:${m} ${ampm}`;
   };
 
+<<<<<<< HEAD
   const statusStyle = statusColors[status] || statusColors.confirmed;
 
+=======
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
   return (
     <Card
       elevation={0}
@@ -73,6 +93,7 @@ const BookingCard = ({ booking, onCancel }) => {
         border: '1px solid',
         borderColor: 'divider',
         borderRadius: 3,
+<<<<<<< HEAD
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         '&:hover': {
           borderColor: 'primary.main',
@@ -94,11 +115,32 @@ const BookingCard = ({ booking, onCancel }) => {
               <Typography variant="caption" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mt: 0.3 }}>
                 <ConfirmationNumber sx={{ fontSize: 12 }} />
                 ID: {_id ? _id.slice(-8).toUpperCase() : 'N/A'} &bull; {busType || 'Standard'}
+=======
+        transition: 'all 0.2s ease',
+        '&:hover': {
+          borderColor: 'primary.main',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+          transform: 'translateY(-2px)',
+        },
+      }}
+    >
+      <CardContent sx={{ p: { xs: 2, md: 3 } }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <DirectionsBus color="primary" />
+            <Box>
+              <Typography variant="h6" fontWeight={600}>
+                {busName || 'Bus Name'}
+              </Typography>
+              <Typography variant="caption" color="text.secondary">
+                {busType || 'Standard'} &bull; Booking ID: {_id ? _id.slice(-8).toUpperCase() : 'N/A'}
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
               </Typography>
             </Box>
           </Box>
           <Chip
             label={status.toUpperCase()}
+<<<<<<< HEAD
             size="small"
             sx={{
               fontWeight: 700,
@@ -108,18 +150,30 @@ const BookingCard = ({ booking, onCancel }) => {
               fontSize: 11,
               letterSpacing: '0.5px',
             }}
+=======
+            color={statusColors[status] || 'default'}
+            size="small"
+            sx={{ fontWeight: 600, borderRadius: 1 }}
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           />
         </Box>
 
         <Divider sx={{ my: 2 }} />
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, flexWrap: 'wrap', gap: 2 }}>
+<<<<<<< HEAD
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
             <Box sx={{ p: 0.5, bgcolor: 'grey.100', borderRadius: 1, display: 'flex' }}>
               <CalendarToday sx={{ fontSize: 16, color: 'text.secondary' }} />
             </Box>
             <Box>
               <Typography variant="body2" fontWeight={600}>
+=======
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <CalendarToday fontSize="small" color="action" />
+            <Box>
+              <Typography variant="body2" fontWeight={500}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                 {formatDate(date)}
               </Typography>
               <Typography variant="caption" color="text.secondary">
@@ -127,12 +181,19 @@ const BookingCard = ({ booking, onCancel }) => {
               </Typography>
             </Box>
           </Box>
+<<<<<<< HEAD
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
             <Box sx={{ p: 0.5, bgcolor: 'grey.100', borderRadius: 1, display: 'flex' }}>
               <AccessTime sx={{ fontSize: 16, color: 'text.secondary' }} />
             </Box>
             <Box>
               <Typography variant="body2" fontWeight={600}>
+=======
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <AccessTime fontSize="small" color="action" />
+            <Box>
+              <Typography variant="body2" fontWeight={500}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
                 {formatTime(departureTime)} - {formatTime(arrivalTime)}
               </Typography>
               <Typography variant="caption" color="text.secondary">
@@ -152,6 +213,7 @@ const BookingCard = ({ booking, onCancel }) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
+<<<<<<< HEAD
             gap: 1.5,
           }}
         >
@@ -163,12 +225,23 @@ const BookingCard = ({ booking, onCancel }) => {
               </Typography>
             </Box>
             <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap>
+=======
+            gap: 1,
+          }}
+        >
+          <Box>
+            <Typography variant="body2" fontWeight={600} color="primary.main">
+              {from} &rarr; {to}
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 0.5, mt: 0.5, flexWrap: 'wrap' }}>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
               {seats.map((seat) => (
                 <Chip
                   key={seat}
                   label={`Seat ${seat}`}
                   size="small"
                   variant="outlined"
+<<<<<<< HEAD
                   color="primary"
                   sx={{ borderRadius: 1, fontSize: 10, fontWeight: 600 }}
                 />
@@ -180,12 +253,25 @@ const BookingCard = ({ booking, onCancel }) => {
               ${totalFare?.toFixed(2) || '0.00'}
             </Typography>
             <Typography variant="caption" color="text.secondary" fontWeight={500}>
+=======
+                  sx={{ borderRadius: 1, fontSize: 11 }}
+                />
+              ))}
+            </Box>
+          </Box>
+          <Box sx={{ textAlign: 'right' }}>
+            <Typography variant="h6" fontWeight={700} color="primary">
+              ${totalFare?.toFixed(2) || '0.00'}
+            </Typography>
+            <Typography variant="caption" color="text.secondary">
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
               Total Fare
             </Typography>
           </Box>
         </Box>
 
         <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end' }}>
+<<<<<<< HEAD
           <PDFDownloadLink
             document={<TicketPDF booking={booking} userName={user?.name} />}
             fileName={`BusTicket-${_id?.slice(-8).toUpperCase() || 'ticket'}.pdf`}
@@ -203,6 +289,16 @@ const BookingCard = ({ booking, onCancel }) => {
               </Button>
             )}
           </PDFDownloadLink>
+=======
+          <Button
+            variant="outlined"
+            size="small"
+            startIcon={<Download />}
+            sx={{ textTransform: 'none', borderRadius: 2 }}
+          >
+            Ticket
+          </Button>
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
           {status !== 'cancelled' && status !== 'completed' && (
             <Button
               variant="outlined"
@@ -210,7 +306,11 @@ const BookingCard = ({ booking, onCancel }) => {
               color="error"
               startIcon={<Cancel />}
               onClick={() => onCancel?.(_id)}
+<<<<<<< HEAD
               sx={{ borderRadius: 2, fontWeight: 600 }}
+=======
+              sx={{ textTransform: 'none', borderRadius: 2 }}
+>>>>>>> 45d7ce35bfbc3b7dd0cb0f34fc5c2066024c0e92
             >
               Cancel
             </Button>
